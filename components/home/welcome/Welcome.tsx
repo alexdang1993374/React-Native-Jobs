@@ -11,8 +11,7 @@ import { useRouter } from "expo-router";
 
 import styles from "./welcome.style";
 import { icons, SIZES } from "../../../constants";
-
-type TJobType = "Full-time" | "Part-time" | "Contractor";
+import { TJobType } from "../../../types";
 
 const jobTypes: TJobType[] = ["Full-time", "Part-time", "Contractor"];
 

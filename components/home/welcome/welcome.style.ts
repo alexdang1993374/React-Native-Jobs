@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
+import { TJobType } from "../../../types";
 
 const styles = StyleSheet.create({
   container: {
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
   },
   // @ts-ignore
-  tab: (activeJobType, item) => ({
+  tab: (activeJobType, item: TJobType) => ({
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),
   // @ts-ignore
-  tabText: (activeJobType, item) => ({
+  tabText: (activeJobType, item: TJobType) => ({
     fontFamily: FONT.medium,
     color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),

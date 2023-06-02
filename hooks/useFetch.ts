@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RAPID_API_KEY } from "@env";
+import { IItem } from "../types";
 
 const rapidApiKey = RAPID_API_KEY;
 
@@ -10,7 +11,7 @@ interface IQuery {
 }
 
 const useFetch = (endpoint: string, query: IQuery) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<IItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 

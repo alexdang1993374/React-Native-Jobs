@@ -12,13 +12,23 @@ import styles from "./popularjobs.style";
 import { COLORS, SIZES } from "../../../constants";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 import useFetch from "../../../hooks/useFetch";
+import { IItem } from "../../../types";
+
+interface IRenderItemProps {
+  item: IItem;
+}
 
 const Popularjobs = () => {
   const router = useRouter();
+
   const { data, isLoading, error } = useFetch("search", {
     query: "React developer",
     num_pages: 1,
   });
+
+  const [selectedJob, setSelectedJob] = useState("");
+
+  const handleCardPress = (item: IItem) => {};
 
   return (
     <View style={styles.container}>
@@ -38,8 +48,14 @@ const Popularjobs = () => {
         ) : (
           <FlatList
             data={data}
-            renderItem={({ item }) => <PopularJobCard item={item} />}
-            keyExtractor={(item) => item?.job_id}
+            renderItem={({ item }) => (
+              <PopularJobCard
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={() => handleCardPress(item)}
+              />
+            )}
+            keyExtractor={(item: IItem) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />

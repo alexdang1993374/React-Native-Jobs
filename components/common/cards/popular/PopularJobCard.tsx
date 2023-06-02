@@ -3,11 +3,12 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { checkImageURL } from "../../../../utils";
 
 import styles from "./popularjobcard.style";
+import { IItem } from "../../../../types";
 
 interface IPopularJobCard {
-  item: any;
-  selectedJob: any;
-  handleCardPress: (item: any) => void;
+  item: IItem;
+  selectedJob: string;
+  handleCardPress: (item: IItem) => void;
 }
 
 const PopularJobCard = ({
@@ -32,6 +33,7 @@ const PopularJobCard = ({
               : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
           }}
           resizeMode="contain"
+          // @ts-ignore
           style={styles.logoImage}
         />
       </TouchableOpacity>
