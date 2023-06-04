@@ -6,8 +6,9 @@ import { IItem } from "../types";
 const rapidApiKey = RAPID_API_KEY;
 
 interface IQuery {
-  query: string;
-  num_pages: number;
+  query?: string;
+  num_pages?: number;
+  job_id?: string | string[];
 }
 
 const useFetch = (endpoint: string, query: IQuery) => {
