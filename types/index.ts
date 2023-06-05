@@ -8,3 +8,5 @@ export interface IItem {
 }
 
 export type TJobType = "Full-time" | "Part-time" | "Contractor";
+
+export type TTabs = "About" | "Qualifications" | "Responsibilities";

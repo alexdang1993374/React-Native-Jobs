@@ -19,11 +19,15 @@ import {
 } from "../../components";
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hooks/useFetch";
+import { TTabs } from "../../types";
+
+const tabs: TTabs[] = ["About", "Qualifications", "Responsibilities"];
 
 const JobDetails = () => {
   const params = useSearchParams();
   const router = useRouter();
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const { data, isLoading, error } = useFetch("job-details", {
     job_id: params.id,
